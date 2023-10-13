@@ -74,6 +74,8 @@ body * {
   border: 12px;
   border-radius: 50%;
 
+  outline: 2.5px solid var(--stroke-color);
+
   /* para alinhar um display in-line:
   display: block;
   margin: auto; */
@@ -92,6 +94,17 @@ body * {
   margin: 4px auto;
 }
 
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
 #switch button {
   width: 32px;
   height: 32px;
@@ -106,23 +119,15 @@ body * {
   transform: translateY(-50%);
 
   cursor: pointer;
+  animation: slide-back 0.2s;
 }
 
-#switch span {
-  display: block;
-  width: 64px;
-  height: 24px;
-  border-radius: 9999px;
-  border: 1px solid var(--stroke-color);
-  background: var(--surface-color);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  /*colocar o left como o inicial para funcionar:*/
-  left: initial;
+  animation: slide-in 0.2s forwards;
 }
 
 /*links*/
@@ -206,5 +211,25 @@ footer {
 
   .light {
     --bg-url: url(assets/bg-desktop-light.jpg);
+  }
+}
+
+/*animation*/
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
