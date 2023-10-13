@@ -32,7 +32,8 @@
 
 #container {
   /*geralmente não é necessário colocar height(altura) pq deve ser fluida para der a rolagem da tela*/
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: auto;
 
   padding: 0 24px;
